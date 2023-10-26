@@ -2,8 +2,18 @@
 
 이 프로젝트는 병원 비용 데이터를 분석하는 것을 목표로 합니다. 주요 작업은 데이터 전처리, 탐색적 데이터 분석, 선형 회귀 분석, 그래프 시각화 등을 포함합니다.
 
+[1. 패키지 설치 및 그래프 설정](#1-패키지-설치-및-그래프-설정)
+[2. 데이터 수집](#2-데이터-수집)
+[3. 데이터 전처리](#3-데이터-전처리)
+[4. 데이터 탐색 및 시각화](#4-데이터-탐색-및-시각화)
+[5. 가설 설정](#5-가설-설정)
+[6. 데이터 분할](#6-데이터-분할)
+[7. 선형 회귀 분석](#7-선형-회귀-분석)
+[8. 3D 시각화](#8-3d-시각화)
+[9. 예측](#9-예측)
+[10. 문의](#10-문의)
 
-## 패키지 설치 및 그래프 설정
+## 1. 패키지 설치 및 그래프 설정
 
 프로젝트를 시작하기 전, 필요한 R 패키지를 설치하고 그래프 설정을 합니다.
  ```
@@ -18,7 +28,7 @@ library(scatterplot3d)
 options(repr.plot.width=7, repr.plot.height=7)
 ```
 
-## 데이터 수집
+## 2. 데이터 수집
 
 병원 비용 데이터는 Kaggle에서 제공되며 다음 링크에서 얻을 수 있습니다:
 
@@ -31,7 +41,7 @@ system("gdown --id 12KK_QTRPvhvHwim_Mgf0tRz7kpKelhaL")
 system("ls", TRUE)
 ```
 
-## 데이터 전처리
+## 3. 데이터 전처리
 
 데이터를 불러온 후, 결측값 처리와 이상값 처리를 수행합니다. 데이터의 구조를 확인하고 필요한 변수를 팩터(factor)로 변환합니다. 
 
@@ -39,7 +49,7 @@ system("ls", TRUE)
 hc <- hc %>% mutate_at(c("sex", "smoker", "region"), factor)
 ```
 
-## 데이터 탐색 및 시각화
+## 4. 데이터 탐색 및 시각화
 
 데이터 전처리 이후, 데이터간의 상관관계를 분석하기 위해 시각화합니다. 
 
@@ -47,20 +57,20 @@ hc <- hc %>% mutate_at(c("sex", "smoker", "region"), factor)
 <img src="https://github.com/auspicious0/insurance/assets/108572025/afe40cf7-a507-427d-8523-a19089c80f42" width="500" height="500"/>
 
 
-## 가설 설정
+## 5. 가설 설정
 
 귀무가설: 흡연(smoker)과 나이(age)는 병원비(charges)에 영향을 미치지 않는다.
 
 대립가설: 흡연(smoker)과 나이(age)는 병원비(charges)에 영향을 미친다.
 
-## 데이터 분할
+## 6. 데이터 분할
 
 ```
 train_set <- sample_frac(hc, 0.7, replace = FALSE)
 test_set <- setdiff(hc, train_set)
 ```
 
-## 선형 회귀 분석
+## 7. 선형 회귀 분석
 
 나이(age)와 병원비(charges) 사이의 단순 선형 회귀 모델
 ```
@@ -132,13 +142,13 @@ Multiple R-squared:  0.6026,	Adjusted R-squared:  0.6016
 F-statistic: 630.7 on 2 and 832 DF,  p-value: < 2.2e-16
 ```
 
-## 3D 시각화
+## 8. 3D 시각화
 
 scatterplot3d와 plane3d를 사용하여 3D 그래프로 데이터를 시각화합니다.
 <img src="https://github.com/auspicious0/insurance/assets/108572025/e10cea56-aac0-42e8-abd2-6a59fb60c695" width="500" height="500"/>
 <img src="https://github.com/auspicious0/insurance/assets/108572025/4dfbda2e-c3d2-44e5-9e4c-65c5f3394126" width="500" height="500"/>
 
-## 예측
+## 9. 예측
 
 테스트 데이터를 사용하여 병원 비용을 예측하고 예측 결과를 확인합니다.
 
@@ -160,7 +170,7 @@ scatterplot3d와 plane3d를 사용하여 3D 그래프로 데이터를 시각화�
 # ℹ 347 more rows
 ```
 
-## 문의
+## 10. 문의
 프로젝트에 관한 문의나 버그 리포트는 [이슈 페이지](https://github.com/auspicious0/insurance/issues)를 통해 제출해주세요.
 
 보다 더 자세한 내용을 원하신다면 [보고서](https://github.com/auspicious0/insurance/blob/main/%EC%84%A0%ED%98%95%ED%9A%8C%EA%B7%80.ipynb) 를 확인해 주시기 바랍니다.
