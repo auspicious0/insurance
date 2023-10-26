@@ -50,6 +50,7 @@ hc <- hc %>% mutate_at(c("sex", "smoker", "region"), factor)
 ## 가설 설정
 
 귀무가설: 흡연(smoker)과 나이(age)는 병원비(charges)에 영향을 미치지 않는다.
+
 대립가설: 흡연(smoker)과 나이(age)는 병원비(charges)에 영향을 미친다.
 
 ## 데이터 분할
@@ -162,4 +163,4 @@ scatterplot3d와 plane3d를 사용하여 3D 그래프로 데이터를 시각화�
 ## 문의
 프로젝트에 관한 문의나 버그 리포트는 [이슈 페이지](https://github.com/auspicious0/divorce_project/divorce_project/issues)를 통해 제출해주세요.
 
-보다 더 자세한 내용을 원하신다면 [보고서](https://github.com/auspicious0/divorce_project/files/12496139/dsci_._._20185254.2.pdf) 를 확인해 주시기 바랍니다.
+보다 더 자세한 내용을 원하신다면 [보고서](https://github.com/auspicious0/insurance/blob/main/%EC%84%A0%ED%98%95%ED%9A%8C%EA%B7%80.ipynb) 를 확인해 주시기 바랍니다.
